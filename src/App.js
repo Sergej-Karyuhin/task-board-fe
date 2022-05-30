@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getAllUsers } from './services/users';
+import Users from './pages/users';
 
 import './App.css';
 
@@ -7,19 +8,10 @@ const App = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getAllUsers().then((data) => setUsers(data));    
+    getAllUsers().then(setUsers);
   }, []);
-  
-  return (
-    <div className='app'>
-     <p>Users:</p>
-     <div>
-       {users.map(({ id, name }, index) => (
-         <p key={id}>{index + 1}) {name}</p>
-       ))}
-     </div>
-    </div>
-  );
+
+  return <Users users={users} setUsers={setUsers} />;
 };
 
 export default App;
