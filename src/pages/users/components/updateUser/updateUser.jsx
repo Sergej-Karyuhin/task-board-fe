@@ -53,7 +53,7 @@ const UpdateUser = ({
           <label className={styles.label}>
             Password:
             <input
-              type="password"
+              type="text"
               value={userForUpdate?.password ?? ''}
               onChange={(event) =>
                 setUserForUpdate({

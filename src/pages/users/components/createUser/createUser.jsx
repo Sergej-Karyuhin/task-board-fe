@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { createUser } from '../../../../services/users';
 
 import styles from './createUser.module.scss';
@@ -50,4 +50,4 @@ const CreateUser = ({ users, setUsers }) => {
   );
 };
 
-export default CreateUser;
+export default memo(CreateUser);
