@@ -2,7 +2,7 @@ import { updateUser } from '../../../../services/users';
 
 import styles from './updateUser.module.scss';
 
-const UpdateUser = ({ users, setUsers, userForUpdate, setUserForUpdate }) => {
+const UpdateUser = ({ users, setUsers, userForUpdate, setUserForUpdate, isShowUpdateUser, setIsShowUpdateUser }) => {
   const onSubmit = (event) => {
     const qqq = (user) => {
       const q = users.filter((item) => item.id !== user.id);
@@ -11,11 +11,13 @@ const UpdateUser = ({ users, setUsers, userForUpdate, setUserForUpdate }) => {
       setUserForUpdate(w);
     };
     updateUser(userForUpdate).then(qqq);
+    setIsShowUpdateUser(false);
     event.preventDefault();
   };
 
   return (
-    <div>
+    isShowUpdateUser && (
+      <div>
       <p>Update user:</p>
       <form className={styles.form} onSubmit={onSubmit}>
         <label className={styles.label}>
@@ -46,6 +48,7 @@ const UpdateUser = ({ users, setUsers, userForUpdate, setUserForUpdate }) => {
         <input type="submit" value="Submit" />
       </form>
     </div>
+    )
   );
 };
 

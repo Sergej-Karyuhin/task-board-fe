@@ -7,6 +7,7 @@ import styles from './users.module.scss';
 
 const Users = ({ users, setUsers }) => {
   const [userForUpdate, setUserForUpdate] = useState();
+  const [isShowUpdateUser, setIsShowUpdateUser] = useState(false); 
 
   const qqq = (event) => {
     const {
@@ -20,6 +21,7 @@ const Users = ({ users, setUsers }) => {
     }
 
     if (event.target.id.startsWith('update__')) {
+      setIsShowUpdateUser(true);
       const qqq = users.find((user) => user.id === id);
       setUserForUpdate(qqq);
     }
@@ -44,7 +46,7 @@ const Users = ({ users, setUsers }) => {
         </div>
       </div>
 
-      <UpdateUser users={users} setUsers={setUsers} userForUpdate={userForUpdate} setUserForUpdate={setUserForUpdate} />
+      <UpdateUser users={users} setUsers={setUsers} userForUpdate={userForUpdate} setUserForUpdate={setUserForUpdate} isShowUpdateUser={isShowUpdateUser} setIsShowUpdateUser={setIsShowUpdateUser} />
       <CreateUser users={users} setUsers={setUsers} />
     </div>
   );
