@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { deleteUser } from '../../services/users';
-import { CreateUser, UpdateUser } from './components/createUser';
+import CreateUser from './components/createUser';
+import UpdateUser from './components/updateUser';
 
 import styles from './users.module.scss';
 
